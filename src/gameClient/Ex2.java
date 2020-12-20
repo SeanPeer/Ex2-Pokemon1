@@ -130,7 +130,7 @@ public class Ex2 implements Runnable{
                     f = true;
 
                     
-                    dt_gloabl -=17;
+                    dt_gloabl -=18;
 
                 }
 

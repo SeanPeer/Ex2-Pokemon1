@@ -7,9 +7,11 @@ in each level there are different quantity of agents and a different time limit.
 Every time the agent catches a pokemon, the game creates a new pokemon on the graph.  
 
 #### The game menu:   
- ![picture](images/1.png)
+ ![picture](images/1.PNG)   
+ • Inssert your ID:   
+ ![picture](images/2.PNG)  
    • select a level from 0 to 23:   
-![picture](images/7.png)   
+![picture](images/2.5.PNG)   
 • after selecting the level, press play to start :  
 ![picture](images/3.png)  
 
@@ -32,10 +34,9 @@ DWGraph_DS - This class implements directed weighted graph.
 EdgeData - This class implements the edge weight.
 
 
-## Package gameClient :
-/ToDO!  
-Ex2 -   
-Arena -   
+## Package gameClient :  
+Ex2 -  This class represent the Algorithm of the Project and the communication with the server. 
+ 
 
 
 ## Package Gui :

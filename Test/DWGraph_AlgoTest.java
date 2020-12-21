@@ -12,7 +12,9 @@ import org.junit.jupiter.api.Test;
 import api.*;
 import gameClient.*;
 
-class DWGraph_AlgoTest {
+import java.util.List;
+
+ class DWGraph_AlgoTest {
 
 	private directed_weighted_graph connectGraph() {
 		directed_weighted_graph graph = new DWGraph_DS();
@@ -83,70 +85,71 @@ class DWGraph_AlgoTest {
 		assertTrue(algo1.getGraph().equals(graph2));
 	}
 
-//	@Test
-//	void testDjikstra() {
-//		fail("Not yet implemented");
-//	}
 
 	@Test
 	void testIsConnected() {
-		directed_weighted_graph con_graph = new DWGraph_DS();
+		directed_weighted_graph g = new DWGraph_DS();
+		g.addNode(new Node(1));
+		g.addNode(new Node(2));
+		g.addNode(new Node(3));
+		g.addNode(new Node(4));
 
-		con_graph.addNode(new Node(0));
-		con_graph.addNode(new Node(1));
-
+		g.connect(1,2,1);
+		g.connect(2,1,1);
+		g.connect(1,3,1);
+		g.connect(3,1,1);
+		g.connect(2,3,1);
+		g.connect(3,4,1);
+		g.connect(4,3,1);
 
 		dw_graph_algorithms algo = new DWGraph_Algo();
-		algo.init(con_graph);
+		algo.init(g);
+		assertTrue(algo.isConnected());
 
-		assertFalse(algo.isConnected());
-		con_graph.connect(1, 0, 9);
-		assertTrue(algo.isConnected());/// need to finish........
-		
-		con_graph.connect(1, 2, 2);
-		con_graph.connect(2, 3, 3);
-//		assertFalse(algo.isConnected()); /// need to finish........
-	
-
-	}
-
-	@Test/// need to finish........
-	void testShortestPathDist() {
-		//(1) --> 3 --> (2)
-		DWGraph_DS graph = new DWGraph_DS();
-		graph.addNode(new Node(1));
-		graph.addNode(new Node(2));
-		graph.connect(1, 2, 3);
-		//dw_graph_algorithms algo = DWGraph_Algo(graph);
-
-	//	double dist = algo.shortestPathDist(1, 2);
-//		assertEquals(3, dist);
-
-//	//	graph = connectGraph();
-//		algo.init(graph);
-//		dist = algo.shortestPathDist(1, 3);
-//		assertEquals(2, dist);
 	}
 
 	@Test
-	void testShortestPath() {/// need to finish........
-//		DGraph graph = new DGraph();
-//		graph.addNode(new Node(1));
-//
-//		graph.addNode(new Node(3));
-//		graph.addNode(new Node(4));
+	void testShortestPathDist() {
+	
+		DWGraph_DS graph = new DWGraph_DS();
+		graph.addNode(new Node(1));
+		graph.addNode(new Node(2));
+		graph.addNode(new Node(3));
+		graph.addNode(new Node(4));
+		graph.addNode(new Node(5));
+		graph.addNode(new Node(6));
 
-//		graph.connect(1, 3, 5);
-//		graph.connect(3, 4, 5);
-//		graph.connect(4, 1, 3);
-//
-//		graph.addNode(new Node(2));
-//		graph.connect(1, 2, 70);
-//		graph.connect(2, 3, 10);
-//		DWGraph_Algo algo = new DWGraph_Algo(graph);
-//		List<node_data> l = algo.shortestPath(1, 4);
-//
-//		assertEquals("[Node [key=4, location=null], Node [key=3, location=null], Node [key=1, location=null]]",l.toString());
+
+		graph.connect(1, 2, 3);
+		graph.connect(1, 3, 1);
+		graph.connect(2, 3, 1);
+		graph.connect(3, 4, 1);
+		DWGraph_Algo algo = new DWGraph_Algo();
+		algo.init(graph);
+		double res = algo.shortestPathDist(1, 4);
+		assertEquals(2, res, 2);
+	}
+
+	@Test
+	void testShortestPath() {
+		DWGraph_DS graph = new DWGraph_DS();
+		graph.addNode(new Node(1));
+		graph.addNode(new Node(2));
+		graph.addNode(new Node(3));
+		graph.addNode(new Node(4));
+		graph.addNode(new Node(5));
+		graph.addNode(new Node(6));
+
+
+		graph.connect(1, 2, 3);
+		graph.connect(1, 3, 1);
+		graph.connect(2, 3, 1);
+		graph.connect(3, 4, 1);
+		DWGraph_Algo algo = new DWGraph_Algo();
+		algo.init(graph);
+		List<node_data> l = algo.shortestPath(1, 4);
+		System.out.println(l);
+		assertEquals("[Node [key=1], Node [key=3], Node [key=4]]",l.toString());
 	}
 
 	@Test

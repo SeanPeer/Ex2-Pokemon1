@@ -1,5 +1,5 @@
 package api;
-import gameClient.util.Point3D;
+
 /**
  * This interface represents a geo location <x,y,z>, aka Point3D
  */

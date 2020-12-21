@@ -1,7 +1,7 @@
 package api;
-import java.awt.Window.Type;
+
 import java.io.*;
-import java.nio.charset.StandardCharsets;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -13,12 +13,12 @@ import org.json.*;
 
 
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
+
 
 import gameClient.util.Point3D;
 
 /**
- * This interface represents a Directed (positive) Weighted Graph Theory Algorithms including:
+ * This class represents a Directed (positive) Weighted Graph Theory Algorithms including:
  * 0. clone(); (copy)
  * 1. init(graph);
  * 2. isConnected(); // strongly (all ordered pais connected)
@@ -27,7 +27,7 @@ import gameClient.util.Point3D;
  * 5. Save(file); // JSON file
  * 6. Load(file); // JSON file
  *
- * @author boaz.benmoshe
+ * @author amos.sean
  *
  */
 public class DWGraph_Algo implements dw_graph_algorithms {
@@ -108,6 +108,7 @@ public class DWGraph_Algo implements dw_graph_algorithms {
 
 
 	public void djikstra(directed_weighted_graph graph, int source) {
+		
 		//google "djikstra psuedo code" (wikipedia)
 		//https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 
